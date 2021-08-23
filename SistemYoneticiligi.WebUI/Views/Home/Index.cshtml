@@ -1,0 +1,102 @@
+@model IEnumerable<SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Queries.GetCustomLogs.GetCustomLogViewModel>
+@{
+
+    ViewData["Title"] = "Kayıt Ekranı";
+}
+
+
+<div class="col col-12 mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Giriş Bilgileri</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IpAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IpAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+                        </div>
+                    </div>
+                </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    var getIp = {
+        "url": "https://phpapis.enginyenice.com/ipgetter.php",
+        "method": "GET",
+        "timeout": 0,
+    };
+
+    $.ajax(getIp).done(function (response) {
+
+
+
+
+
+
+
+
+
+var createLog = {
+  "url": "createlog",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "IpAddress": response.ip
+  }),
+};
+
+$.ajax(createLog).done(function (response) {
+  console.log(response);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+</script>

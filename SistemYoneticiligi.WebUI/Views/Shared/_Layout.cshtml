@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SistemYoneticiligi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/sakaryaLogo2.png" alt="" width="250" height="70"
+                        class="d-inline-block align-text-top">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="container mt-3">
+                <div class="col col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>ÖĞRENCİ BİLGİLERİ</strong>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Adı Soyadı:</strong> Engin Yenice</p>
+                            <p class="card-text"><strong>Numara :</strong> S201200019</p>
+                        </div>
+                    </div>
+                </div>
+
+                @RenderBody()
+
+            </div>
+    </div>
+
+
+
+
+
+
+    </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
