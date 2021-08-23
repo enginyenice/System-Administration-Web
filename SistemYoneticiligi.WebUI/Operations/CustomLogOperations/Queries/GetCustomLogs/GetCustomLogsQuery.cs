@@ -40,10 +40,10 @@ namespace SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Queries.GetCus
     public class GetCustomLogViewModel
     {
 
-        [Display(Name ="Ip Adresi")]
+        [Display(Name ="IP adresi")]
         public string IpAddress { get; set; }
 
-        [Display(Name ="Giriş Tarihi")]
+        [Display(Name ="Tarih")]
         public string Date { get; set; }
     }
 }

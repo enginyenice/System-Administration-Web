@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  sistemdb:
+    image: mongo
+  sistemyoneticiligiweb:
+    image: sistem_yoneticiligi_image
+    build:
+      context: .
+      dockerfile: SistemYoneticiligi.WebUI/Dockerfile
+
+volumes: 
+  mongo_volume:
