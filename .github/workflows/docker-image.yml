@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
+    - name: Dockerhub Login
+      env: 
+        REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+        RESISTRY_PASSWORD: ${{ secrets.RESISTRY_PASSWORD }}
+      run: docker login -u $REGISTRY_USERNAME -p $RESISTRY_PASSWORD
+    - name: Publish
+      run: docker push enginyenice/sistemyoneticiligiweb:latest
+      
