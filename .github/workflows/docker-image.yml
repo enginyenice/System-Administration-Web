@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Project\SistemYoneticiligi.WebUIDockerfile --tag enginyenice/sistemyoneticiligiweb:latest
+      run: docker build . --file Project\SistemYoneticiligi.WebUI\Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
     - name: Dockerhub Login
       env: 
         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
