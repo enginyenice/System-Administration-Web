@@ -5,5 +5,10 @@ services:
   sistemyoneticiligiweb:
     image: sistem_yoneticiligi_image
     image: enginyenice/sistemyoneticiligiweb:latest
+  sistemnginx:
+    build: 
+      context: .
+      dockerfile: ReverseProxy/Dockerfile
+
 volumes: 
   mongo_volume:

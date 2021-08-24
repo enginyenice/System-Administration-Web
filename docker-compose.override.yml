@@ -12,7 +12,17 @@ services:
     environment: 
       - ASPNETCORE_ENVIRONMENT=Development
       - DatabaseSettings:ConnectionString=mongodb://sistemdb:27017
-    ports: 
-      - "5011:80"
+    expose:
+      - "5011"
     depends_on: 
       - sistemdb
+  sistemnginx:
+    container_name: sistemyoneticiliginginx
+    ports: 
+      - "80:80"
+    links: 
+      - sistemyoneticiligiweb:sistemyoneticiligiweb
+      - sistemdb:sistemdb
+    depends_on: 
+      - "sistemdb"
+      - "sistemyoneticiligiweb"
