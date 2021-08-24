@@ -6,6 +6,7 @@ RUN dotnet restore SistemYoneticiligi.WebUI/*.csproj
 COPY . .
 RUN dotnet publish SistemYoneticiligi.WebUI/*.csproj -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim as runtime
+ENV TZ=Europe/Istanbul
 WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT [ "dotnet","SistemYoneticiligi.WebUI.dll"]

@@ -26,6 +26,7 @@ namespace SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Queries.GetCus
             List<CustomLog> customLogs =await _customLogCollection.Find(ipaddress => true).ToListAsync();
             customLogs = customLogs.OrderByDescending(p => p.Id).ToList();
             List<GetCustomLogViewModel> models = new List<GetCustomLogViewModel>();
+
             foreach (var item in customLogs)
             {
                 GetCustomLogViewModel model = new GetCustomLogViewModel();

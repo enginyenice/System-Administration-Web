@@ -11,6 +11,8 @@ namespace SistemYoneticiligi.WebUI.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string IpAddress { get; set; }
+
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime CreatedDate { get; set; }
 
     }

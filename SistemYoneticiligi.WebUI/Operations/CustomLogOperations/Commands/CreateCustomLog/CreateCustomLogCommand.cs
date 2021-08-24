@@ -23,7 +23,7 @@ namespace SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Commands.Creat
         }
         public async Task Handle()
         {
-
+            // System.Console.WriteLine(DateTime.Now);
             CustomLog customLog = new CustomLog();
             customLog.IpAddress = Model.IpAddress;
             customLog.CreatedDate = DateTime.Now;
