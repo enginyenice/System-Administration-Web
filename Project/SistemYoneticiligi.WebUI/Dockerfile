@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim as build
 WORKDIR /app
 EXPOSE 80
-COPY SistemYoneticiligi.WebUI/*.csproj SistemYoneticiligi.WebUI/
+COPY Project/SistemYoneticiligi.WebUI/*.csproj SistemYoneticiligi.WebUI/
 RUN dotnet restore SistemYoneticiligi.WebUI/*.csproj
 COPY . .
 RUN dotnet publish SistemYoneticiligi.WebUI/*.csproj -c Release -o out
