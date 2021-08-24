@@ -5,9 +5,7 @@ services:
   sistemyoneticiligiweb:
     image: enginyenice/sistemyoneticiligiweb:latest
   sistemnginx:
-    build: 
-      context: .
-      dockerfile: ReverseProxy/Dockerfile
+    image: enginyenice/sistemyoneticiliginginx:latest
 
 volumes: 
   mongo_volume:
