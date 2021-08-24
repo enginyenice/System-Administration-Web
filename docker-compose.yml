@@ -3,7 +3,7 @@ services:
   sistemdb:
     image: mongo
   sistemyoneticiligiweb:
-    image: : enginyenice/sistemyoneticiligiweb:latest
+    image: enginyenice/sistemyoneticiligiweb:latest
   sistemnginx:
     build: 
       context: .
