@@ -23,7 +23,8 @@ jobs:
         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
         RESISTRY_PASSWORD: ${{ secrets.RESISTRY_PASSWORD }}
       run: docker login -u $REGISTRY_USERNAME -p $RESISTRY_PASSWORD
-    - name: Publish
+    - name: Publish Projet
       run: docker push enginyenice/sistemyoneticiligiweb:latest
-  
+    - name: Publish Nginx
+      run: docker push enginyenice/sistemyoneticiliginginx:latest
   
