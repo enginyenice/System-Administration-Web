@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 80
 COPY Project/SistemYoneticiligi.WebUI/*.csproj SistemYoneticiligi.WebUI/
 RUN dotnet restore SistemYoneticiligi.WebUI/*.csproj
-COPY . .
+COPY ./Project .
 RUN dotnet publish SistemYoneticiligi.WebUI/*.csproj -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim as runtime
 ENV TZ=Europe/Istanbul
