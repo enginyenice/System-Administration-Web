@@ -4,9 +4,6 @@ services:
     image: mongo
   sistemyoneticiligiweb:
     image: sistem_yoneticiligi_image
-    build:
-      context: .
-      dockerfile: SistemYoneticiligi.WebUI/Dockerfile
-
+    image: enginyenice/sistemyoneticiligiweb:latest
 volumes: 
   mongo_volume:
