@@ -53,61 +53,7 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-    var getIp = {
-        "url": "https://phpapis.enginyenice.com/ipgetter.php",
-        "method": "GET",
-        "timeout": 0,
-    };
+@section Scripts {
+    <script src="~/js/custom.js"></script>
 
-    $.ajax(getIp).done(function (response) {
-
-        $("#ipAddress").html(`<a href="http://${response.ip}">${response.ip}</a>`);
-
-
-
-
-
-
-
-        var createLog = {
-            "url": "createlog",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "data": JSON.stringify({
-                "IpAddress": response.ip
-            }),
-        };
-
-        $.ajax(createLog).done(function (response) {
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    });
-
-
-
-
-
-
-
-</script>
+}

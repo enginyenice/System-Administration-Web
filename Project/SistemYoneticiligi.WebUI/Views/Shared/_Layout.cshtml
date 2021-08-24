@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SistemYoneticiligi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/toastr.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -47,8 +48,12 @@
 
     </main>
     </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/sweetalert2@11.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
