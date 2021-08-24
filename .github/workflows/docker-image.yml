@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Create Dockerhub Repository
 
 on:
   push:
@@ -11,11 +11,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Project/SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
+    - name: Build to project
+      run: docker build ./project --file Project/SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
+    - name: Build to nginx
+      run: docker build ./nginx --file ReverseProxy/Dockerfile --tag enginyenice/sistemyoneticiliginginx:latest
     - name: Dockerhub Login
       env: 
         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
@@ -23,4 +25,5 @@ jobs:
       run: docker login -u $REGISTRY_USERNAME -p $RESISTRY_PASSWORD
     - name: Publish
       run: docker push enginyenice/sistemyoneticiligiweb:latest
-      
+  
+  
