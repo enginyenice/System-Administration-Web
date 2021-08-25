@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using SistemYoneticiligi.WebUI.Models;
 using SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Commands.CreateCustomLog;
 using SistemYoneticiligi.WebUI.Operations.CustomLogOperations.Queries.GetCustomLogs;
 using SistemYoneticiligi.WebUI.Settings;
@@ -23,15 +19,20 @@ namespace SistemYoneticiligi.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             GetCustomLogsQuery getCustomLogsQuery = new GetCustomLogsQuery(_databaseSettings);
+            
             List<GetCustomLogViewModel> result =await getCustomLogsQuery.Handle();
+            
             return View(result);
         }
 
         [HttpPost("createlog")]
         public async  Task<IActionResult> CreateLog([FromBody]CreateCustomLogModel log){
             CreateCustomLogCommand createCustomLogCommand = new CreateCustomLogCommand(_databaseSettings);
+            
             createCustomLogCommand.Model = log;
+            
             await createCustomLogCommand.Handle();
+            
             return Ok();
         }
 
