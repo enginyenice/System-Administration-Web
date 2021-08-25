@@ -17,7 +17,7 @@ jobs:
     - name: Build to project
       run: docker build . --file Project/SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
     - name: Build to nginx
-      run: docker build . --file ReverseProxy/Dockerfile --tag enginyenice/sistemyoneticiliginginx:latest
+      run: docker build . --file Config/Dockerfile --tag enginyenice/sistemyoneticiliginginx:latest
     - name: Dockerhub Login
       env: 
         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
