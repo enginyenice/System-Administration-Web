@@ -7,24 +7,30 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    - name: Build to project
+    - name: Build Web Project
       run: docker build . --file Project/SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
-    - name: Build to nginx
+
+
+    - name: Build Web NGINX
       run: docker build . --file Config/Dockerfile --tag enginyenice/sistemyoneticiliginginx:latest
+  
+
     - name: Dockerhub Login
       env: 
         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
         RESISTRY_PASSWORD: ${{ secrets.RESISTRY_PASSWORD }}
       run: docker login -u $REGISTRY_USERNAME -p $RESISTRY_PASSWORD
-    - name: Publish Projet
+    
+    
+    - name: Publish  Web Project
       run: docker push enginyenice/sistemyoneticiligiweb:latest
-    - name: Publish Nginx
+
+
+    - name: Publish NGINX
       run: docker push enginyenice/sistemyoneticiliginginx:latest
   
