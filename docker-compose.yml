@@ -1,11 +1,45 @@
 version: "3.4"
 services:
+#########################[ DATABASE ]#############################
   sistemdb:
     image: mongo
+    container_name: sistemdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_volume:/data/db
+#################################################################
+
+#########################[ PROJECT ]#############################
   sistemyoneticiligiweb:
     image: enginyenice/sistemyoneticiligiweb:latest
+    container_name: sistemyoneticiligiweb
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DatabaseSettings:ConnectionString=mongodb://sistemdb:27017
+    expose:
+      - "5011"
+    depends_on: 
+      - sistemdb
+#################################################################
+
+
+##########################[ NGINX ]##############################
   sistemnginx:
     image: enginyenice/sistemyoneticiliginginx:latest
+    container_name: sistemyoneticiliginginx
+    ports: 
+      - "80:80"
+    links: 
+      - sistemyoneticiligiweb:sistemyoneticiligiweb
+      - sistemdb:sistemdb
+    depends_on: 
+      - "sistemdb"
+      - "sistemyoneticiligiweb"
+#################################################################
 
+#########################[ VOLUMES ]#############################
 volumes: 
   mongo_volume:
+  #################################################################
