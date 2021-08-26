@@ -1,1 +1,3 @@
-[![Docker Image CI](https://github.com/enginyenice/sistemyoneticiligi-web/actions/workflows/docker-image.yml/badge.svg)](https://github.com/enginyenice/sistemyoneticiligi-web/actions/workflows/docker-image.yml)
+Engin Yenice S201200019
+sistemyoneticiligi.tk
+https://youtu.be/0cyD4LteVPQ
