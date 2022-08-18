@@ -13,11 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build Web Project
-      run: docker build . --file Project/SistemYoneticiligi.WebUI/Dockerfile --tag enginyenice/sistemyoneticiligiweb:latest
+      working-directory: Project/SistemYoneticiligi.WebUI
+      run: docker build . --tag enginyenice/sistemyoneticiligiweb:latest
 
 
     - name: Build Web NGINX
-      run: docker build . --file Config/Dockerfile --tag enginyenice/sistemyoneticiliginginx:latest
+      working-directory: Config
+      run: docker build . --tag enginyenice/sistemyoneticiliginginx:latest
   
 
     - name: Dockerhub Login
